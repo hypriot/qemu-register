@@ -1,4 +1,5 @@
 # qemu-register
+[![Build Status](https://travis-ci.org/hypriot/qemu-register.svg?branch=master)](https://travis-ci.org/hypriot/qemu-register)
 
 ### Build Qemu binaries and Docker image
 ```
