@@ -14,6 +14,7 @@ docker build -t qemu-compile .
 DOCKER_CONTAINER=$(docker create qemu-compile)
 docker cp $DOCKER_CONTAINER:/usr/local/bin/qemu-arm $BUILD_DEST/
 docker cp $DOCKER_CONTAINER:/usr/local/bin/qemu-aarch64 $BUILD_DEST/
+docker cp $DOCKER_CONTAINER:/usr/local/bin/qemu-ppc64le $BUILD_DEST/
 docker rm -f $DOCKER_CONTAINER
 
 # Show results

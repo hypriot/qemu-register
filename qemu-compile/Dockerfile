@@ -28,7 +28,7 @@ RUN curl -sSL https://github.com/resin-io/qemu/commit/db186a3f83454268c43fc793a4
 
 # Build qemu-*-static binaries for arm and aarch64
 # - resulting binaries are located in "/usr/local/bin/qemu-*"
-ARG TARGET_ARCH=arm-linux-user,aarch64-linux-user
+ARG TARGET_ARCH=arm-linux-user,aarch64-linux-user,ppc64le-linux-user
 RUN mkdir build \
  && cd build \
  && ../configure --static --target-list=$TARGET_ARCH  \
