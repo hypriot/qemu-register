@@ -1,31 +1,29 @@
-# qemu-register
 [![Build Status](https://travis-ci.org/hypriot/qemu-register.svg?branch=master)](https://travis-ci.org/hypriot/qemu-register)
 
-### Build Qemu binaries and Docker image
+### Build Docker image
 ```
 ./build.sh
-```
-```
-ls -al bins/qemu-*
--rwxr-xr-x  1 dieter  staff  3287144 Dec  3 19:12 bins/qemu-aarch64
--rwxr-xr-x  1 dieter  staff  3208360 Dec  3 19:12 bins/qemu-arm
-
-docker images | grep qemu-register
-hypriot/qemu-register   latest                        32118e70108b        3 minutes ago       7.59 MB
 ```
 
 
 ### Check Qemu binaries and versions
 ```
 docker run --rm hypriot/qemu-register sh -c 'ls -al /qemu*'
--rwxr-xr-x    1 root     root       3287144 Dec  3 18:12 /qemu-aarch64
--rwxr-xr-x    1 root     root       3208360 Dec  3 18:12 /qemu-arm
+-rwxr-xr-x    1 root     root       6192520 Apr 27 11:25 /qemu-aarch64
+-rwxr-xr-x    1 root     root       5606984 Apr 27 11:25 /qemu-arm
+-rwxr-xr-x    1 root     root       5987464 Apr 27 11:25 /qemu-ppc64le
 
 docker run --rm hypriot/qemu-register /qemu-arm --version
-qemu-arm version 2.7.0, Copyright (c) 2003-2016 Fabrice Bellard and the QEMU Project developers
+qemu-arm version 4.0.0 (v4.0.0-dirty)
+Copyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers
 
 docker run --rm hypriot/qemu-register /qemu-aarch64 --version
-qemu-aarch64 version 2.7.0, Copyright (c) 2003-2016 Fabrice Bellard and the QEMU Project developers
+qemu-aarch64 version 4.0.0 (v4.0.0-dirty)
+Copyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers
+
+docker run --rm hypriot/qemu-register /qemu-ppc64le --version
+qemu-ppc64le version 4.0.0 (v4.0.0-dirty)
+Copyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers
 ```
 
 
