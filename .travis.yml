@@ -9,7 +9,7 @@ script:
 - >
   if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
-    docker tag hypriot/qemu-register hypriot/qemu-register:v2.7.0
-    docker push hypriot/qemu-register:v2.7.0
+    docker tag hypriot/qemu-register hypriot/qemu-register:v2.8.0
+    docker push hypriot/qemu-register:v2.8.0
     docker push hypriot/qemu-register:latest
   fi
