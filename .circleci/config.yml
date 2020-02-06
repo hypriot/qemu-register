@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    steps:
+      - checkout
+
+      - run:
+          name: Build image
+          command: |
+            ./build.sh
+
+      - deploy:
+          name: Push image
+          command: |
+            if [ "$CIRCLE_TAG" != "" ]; then
+              docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
+              docker tag hypriot/qemu-register hypriot/qemu-register:$CIRCLE_TAG
+              docker push hypriot/qemu-register:$CIRCLE_TAG
+              docker push hypriot/qemu-register:latest
+            fi
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /.*/
