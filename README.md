@@ -14,15 +14,19 @@ docker run --rm hypriot/qemu-register sh -c 'ls -al /qemu*'
 -rwxr-xr-x    1 root     root       5987464 Apr 27 11:25 /qemu-ppc64le
 
 docker run --rm hypriot/qemu-register /qemu-arm --version
-qemu-arm version 4.0.0 (v4.0.0-dirty)
+qemu-arm version 4.2.0
 Copyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers
 
 docker run --rm hypriot/qemu-register /qemu-aarch64 --version
-qemu-aarch64 version 4.0.0 (v4.0.0-dirty)
+qemu-aarch64 version 4.2.0
 Copyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers
 
 docker run --rm hypriot/qemu-register /qemu-ppc64le --version
-qemu-ppc64le version 4.0.0 (v4.0.0-dirty)
+qemu-ppc64le version 4.2.0
+Copyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers
+
+docker run --rm hypriot/qemu-register /qemu-riscv64 --version
+qemu-riscv64 version 4.2.0
 Copyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers
 ```
 
