@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/hypriot/qemu-register.svg?branch=master)](https://travis-ci.org/hypriot/qemu-register)
+[![Build Status](https://circleci.com/gh/hypriot/qemu-register.svg?style=svg)](https://circleci.com/gh/hypriot/qemu-register)
 
 ### Build Docker image
 ```
