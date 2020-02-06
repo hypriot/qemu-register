@@ -1,7 +1,7 @@
 # Fetch base image
 FROM debian:stretch as qemu
 
-ENV QEMU_VERSION 4.0.0
+ENV QEMU_VERSION 4.2.0
 # Install build dependencies
 RUN apt-get update -qq && apt-get install -yqq \
     build-essential \
