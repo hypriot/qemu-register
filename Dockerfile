@@ -25,7 +25,7 @@ RUN curl -sSL https://github.com/resin-io/qemu/commit/db186a3f83454268c43fc793a4
 
 # Build qemu-*-static binaries for arm, aarch64, ppc64le
 # - resulting binaries are located in "/usr/local/bin/qemu-*"
-ARG TARGET_ARCH=arm-linux-user,aarch64-linux-user,ppc64le-linux-user
+ARG TARGET_ARCH=arm-linux-user,aarch64-linux-user,ppc64le-linux-user,riscv64-linux-user
 RUN mkdir build \
  && cd build \
  && ../configure --static --target-list=$TARGET_ARCH  \
@@ -35,5 +35,6 @@ FROM busybox
 COPY --from=qemu /usr/local/bin/qemu-arm /qemu-arm
 COPY --from=qemu /usr/local/bin/qemu-aarch64 /qemu-aarch64
 COPY --from=qemu /usr/local/bin/qemu-ppc64le /qemu-ppc64le
+COPY --from=qemu /usr/local/bin/qemu-riscv64 /qemu-riscv64
 ADD register.sh /register.sh
 CMD ["/register.sh", "--reset"]
