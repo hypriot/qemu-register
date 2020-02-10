@@ -3,12 +3,12 @@ set -e
 
 # Mount if neccessary
 if [ ! -d /proc/sys/fs/binfmt_misc ]; then
-  	echo "No binfmt support in the kernel."
-  	echo "  Try: '/sbin/modprobe binfmt_misc' from the host"
-  	exit 1
+	echo "No binfmt support in the kernel."
+	echo "  Try: '/sbin/modprobe binfmt_misc' from the host"
+	exit 1
 fi
 if [ ! -f /proc/sys/fs/binfmt_misc/register ]; then
-  	mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc
+	mount binfmt_misc -t binfmt_misc /proc/sys/fs/binfmt_misc
 fi
 
 # Reset all pre-registered interpreters, if requested
@@ -16,13 +16,13 @@ if [ "$1" = "--reset" ]; then
 	(
 	cd /proc/sys/fs/binfmt_misc
 	for file in *; do
-	    case "${file}" in
+		case "${file}" in
 		status|register)
-		    ;;
+			;;
 		*)
-		    echo -1 > "${file}"
-		    ;;
-	    esac
+			echo -1 > "${file}"
+			;;
+		esac
 	done
     )
 fi
@@ -43,11 +43,11 @@ cd /proc/sys/fs/binfmt_misc
 for file in *; do
     case "${file}" in
 	status|register)
-	    ;;
+		;;
 	*)
-	    echo "Registered interpreter=${file}"
-	    cat ${file}
-	    echo "---"
-	    ;;
+		echo "Registered interpreter=${file}"
+		cat ${file}
+		echo "---"
+		;;
     esac
 done
