@@ -8,7 +8,7 @@ jobs:
       - run:
           name: Build image
           command: |
-            ./build.sh
+            docker build -t hypriot/qemu-register .
 
       - deploy:
           name: Push image
